@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export const CategoryPage = () => {
   const params = useParams();
@@ -21,14 +22,22 @@ export const CategoryPage = () => {
           <div className="card m-2 p-2">
             <img
               src={category.image}
-              style={{ height: 300, width: 300 }}
+              style={{ height: 200, width: 200 }}
               className="card-img-top"
             />
-            <div className="card-header">
-              <p style={{ width: 200, height: 100 }}>{category.title}</p>
+            <div
+              className="card-header mt-3"
+              style={{ width: 200, height: 200 }}
+            >
+              <p className="overflow-auto">{category.title}</p>
             </div>
             <div className="card-footer">
-              <button className="btn btn-primary w-100">Details</button>
+              <Link
+                to={`/details/${category.id}`}
+                className="btn btn-primary w-100"
+              >
+                Details
+              </Link>
             </div>
           </div>
         ))}

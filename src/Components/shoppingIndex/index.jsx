@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import { HomePage } from "../Home/home";
 import { CategoryPage } from "../Category/category";
+import { DetailsPage } from "../Details/details";
 
 export const ShoppingIndex = () => {
   return (
@@ -58,8 +59,10 @@ export const ShoppingIndex = () => {
         </header>
         <section className="mt-4 overflow-auto" style={{ height: 500 }}>
           <Routes>
+            <Route path="/" element={<HomePage />} />
             <Route path="home" element={<HomePage />} />
             <Route path="category/:catname" element={<CategoryPage />} />
+            <Route path="details/:id" element={<DetailsPage />} />
           </Routes>
         </section>
       </BrowserRouter>
